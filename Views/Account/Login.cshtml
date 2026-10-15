@@ -1,0 +1,19 @@
+@model LoginVm
+<div class="container py-5" style="max-width:420px">
+<div class="card">
+<div class="card-body">
+<h3 class="mb-4">Client Monitoring</h3>
+<form method="post">
+<input type="hidden" asp-for="ReturnUrl">
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<input class="form-control mb-3" asp-for="UserName" placeholder="Username">
+<input class="form-control mb-3" asp-for="Password" type="password" placeholder="Password">
+<div class="form-check mb-3">
+<input class="form-check-input" asp-for="RememberMe">
+<label class="form-check-label" asp-for="RememberMe">Remember me</label>
+</div>
+<button class="btn btn-primary w-100">Login</button>
+</form>
+</div>
+</div>
+</div>

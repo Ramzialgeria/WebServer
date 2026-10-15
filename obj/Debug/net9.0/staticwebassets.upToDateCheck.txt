@@ -1,0 +1,2 @@
+D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\wwwroot\js\monitoring.js
+wwwroot\js\monitoring.js

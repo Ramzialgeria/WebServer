@@ -1,0 +1,54 @@
+[
+  {
+    "ContainingType": "ClientMonitoring.Web.Controllers.Api.AuthController",
+    "Method": "Client",
+    "RelativePath": "api/auth/client",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "r",
+        "Type": "ClientMonitoring.Web.Controllers.Api.AuthController\u002BLoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClientMonitoring.Web.Controllers.Api.HeartbeatController",
+    "Method": "GetClients",
+    "RelativePath": "api/clients",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClientMonitoring.Web.Controllers.Api.HeartbeatController",
+    "Method": "CommuneClients",
+    "RelativePath": "api/commune-clients",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClientMonitoring.Web.Controllers.Api.HeartbeatController",
+    "Method": "Heartbeat",
+    "RelativePath": "api/heartbeat",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "r",
+        "Type": "ClientMonitoring.Web.Models.HeartbeatRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

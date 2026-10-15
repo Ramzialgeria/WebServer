@@ -1,0 +1,231 @@
+@model ActivationIndexVm
+
+@{
+    ViewData["Title"] = "Activation";
+}
+
+<h1 class="mb-4">Activation files</h1>
+
+@if (TempData["Message"] is string message)
+{
+     <div class="alert alert-success">@message</div>
+}
+
+@if (TempData["Error"] is string error)
+{
+     <div class="alert alert-danger">@error</div>
+}
+
+<div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+<!-- ================================================================ -->
+<!-- 1. Central keys                                                   -->
+<!-- ================================================================ -->
+
+<div class="card mb-4">
+    <div class="card-header">
+        1. Central keys
+    </div>
+
+   
+    <div class="card-body">
+
+        @if (!Model.HasKeys)
+        {
+            <p>
+                No key pair yet. Generate it <b>once</b>.
+                The private key stays on this server and signs every
+                activation file.
+            </p>
+
+            <form asp-action="GenerateKeys" method="post">
+                @Html.AntiForgeryToken()
+
+                <button type="submit" class="btn btn-warning">
+                    Generate keys
+                </button>
+            </form>
+        }
+        else
+        {
+            <p class="mb-2">
+                Keys are in place:
+                <code>@Model.KeyFolder</code>
+            </p>
+
+            <p>
+                <b>Back up <code>central_private.xml</code></b>
+                and never copy it to a CommuneServer.
+                Without it no new activation file can be issued.
+            </p>
+
+            <label class="form-label">
+                Public key
+            </label>
+
+            <textarea class="form-control font-monospace"
+                      rows="4"
+                      readonly
+                      onclick="this.select()">@Model.PublicKeyXml</textarea>
+
+            <div class="form-text mt-2">
+                Copy this public key to
+                <code>CommuneSecurity/Activation/CentralPublicKey.cs</code>
+                and rebuild CommuneServer.
+            </div>
+        }
+
+    </div>
+   
+
+</div>
+
+<!-- ================================================================ -->
+<!-- 2. Generate activation files                                      -->
+<!-- ================================================================ -->
+
+<div class="card">
+
+  
+    <div class="card-header">
+        2. Generate activation files
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="CreateAll"
+              method="post">
+
+            @Html.AntiForgeryToken()
+
+            <!-- Type -->
+            <div class="mb-3">
+
+                <label class="form-label" for="activationType">
+                    Election type
+                </label>
+
+                <select class="form-select"
+                        id="activationType"
+                        name="activationType"
+                        required>
+
+                    <option value="">
+                        -- Select type --
+                    </option>
+
+                    <option value="APW">
+                        APW
+                    </option>
+
+                    <option value="APC">
+                        APC
+                    </option>
+
+                </select>
+
+                <div class="form-text">
+                    APW generates the activation file for the selected
+                    Wilaya. APC generates one activation file for each
+                    Commune of the selected Wilaya.
+                </div>
+
+            </div>
+
+
+            <!-- Wilaya -->
+            <div class="mb-3">
+
+                <label class="form-label" for="codeWilaya">
+                    Wilaya
+                </label>
+
+                <select class="form-select"
+                        id="codeWilaya"
+                        name="codeWilaya"
+                        required>
+
+                    <option value="">
+                        -- Select Wilaya --
+                    </option>
+
+                    @foreach (var wilaya in Model.Wilayas)
+                    {
+                        <option value="@wilaya.CodeWilaya"
+                                selected="@(Model.SelectedCodeWilaya == wilaya.CodeWilaya)">
+                            @wilaya.CodeWilaya - @wilaya.Libelle
+                        </option>
+                    }
+
+                </select>
+
+            </div>
+
+
+            <!-- Information -->
+            <div class="alert alert-info">
+
+                <div id="apwInfo" class="d-none">
+                    <b>APW:</b>
+                    One activation file will be generated for the
+                    selected Wilaya.
+                </div>
+
+                <div id="apcInfo" class="d-none">
+                    <b>APC:</b>
+                    One activation file will be generated for every
+                    Commune belonging to the selected Wilaya.
+                </div>
+
+            </div>
+
+
+            <!-- Generate -->
+            <button type="submit"
+                    class="btn btn-primary"
+                    disabled="@(!Model.HasKeys)">
+
+                Generate activation files
+            </button>
+
+            @if (!Model.HasKeys)
+            {
+                <div class="form-text text-danger mt-2">
+                    Generate the Central keys before creating activation files.
+                </div>
+            }
+
+        </form>
+
+    </div>
+   
+
+</div>
+
+@section Scripts
+{
+     <script>
+          document.addEventListener("DOMContentLoaded", function () {
+                  const type = document.getElementById("activationType");
+                  const apwInfo = document.getElementById("apwInfo");
+                  const apcInfo = document.getElementById("apcInfo");
+
+                  function updateInfo() {
+
+                      apwInfo.classList.add("d-none");
+                      apcInfo.classList.add("d-none");
+
+                      if (type.value === "APW") {
+                          apwInfo.classList.remove("d-none");
+                      }
+                      else if (type.value === "APC") {
+                          apcInfo.classList.remove("d-none");
+                      }
+                  }
+
+                  type.addEventListener("change", updateInfo);
+
+                  updateInfo();
+              });
+    </script>
+}

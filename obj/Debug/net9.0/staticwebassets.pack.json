@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\wwwroot\\js\\monitoring.js",
+      "PackagePath": "staticwebassets\\js\\monitoring.js"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.ClientMonitoring.Web.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.ClientMonitoring.Web.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.ClientMonitoring.Web.props",
+      "PackagePath": "build\\ClientMonitoring.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.ClientMonitoring.Web.props",
+      "PackagePath": "buildMultiTargeting\\ClientMonitoring.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.ClientMonitoring.Web.props",
+      "PackagePath": "buildTransitive\\ClientMonitoring.Web.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

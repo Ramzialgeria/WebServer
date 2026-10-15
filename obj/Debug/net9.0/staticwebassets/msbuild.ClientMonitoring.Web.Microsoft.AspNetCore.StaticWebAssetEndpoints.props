@@ -1,0 +1,16 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/ClientMonitoring.Web/js/monitoring.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\monitoring.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-uWPqc93J02A8f6QcfZtzIewtRAC8BCLzrB5HmwJTiCk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2625"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022uWPqc93J02A8f6QcfZtzIewtRAC8BCLzrB5HmwJTiCk=\u0022"},{"Name":"Last-Modified","Value":"Mon, 14 Sep 2026 07:56:29 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ClientMonitoring.Web/js/monitoring.xuy156c9gp.js">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\monitoring.js'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"xuy156c9gp"},{"Name":"integrity","Value":"sha256-uWPqc93J02A8f6QcfZtzIewtRAC8BCLzrB5HmwJTiCk="},{"Name":"label","Value":"_content/ClientMonitoring.Web/js/monitoring.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2625"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022uWPqc93J02A8f6QcfZtzIewtRAC8BCLzrB5HmwJTiCk=\u0022"},{"Name":"Last-Modified","Value":"Mon, 14 Sep 2026 07:56:29 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

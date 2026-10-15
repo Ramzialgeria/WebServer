@@ -1,0 +1,42 @@
+@model ActivationResultVm
+@{
+    ViewData["Title"] = "Activation file";
+}
+
+<h1 class="mb-4">Activation file created</h1>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Server</dt>
+            <dd class="col-sm-9">@Model.ServerCode</dd>
+
+            <dt class="col-sm-3">@(Model.ActivationType == "APW" ? "Wilaya" : "Commune")</dt>
+            <dd class="col-sm-9">@Model.CommuneCode - @Model.CommuneName</dd>
+
+            <dt class="col-sm-3">Users</dt>
+            <dd class="col-sm-9">@Model.UserCount</dd>
+
+            <dt class="col-sm-3">Activation id</dt>
+            <dd class="col-sm-9"><code>@Model.ActivationId</code></dd>
+        </dl>
+    </div>
+</div>
+
+<div class="card border-danger mb-4">
+    <div class="card-header text-bg-danger">Activation code</div>
+    <div class="card-body">
+        <p class="display-6 font-monospace mb-2" style="user-select:all">@Model.Code</p>
+        <p class="mb-0">
+            <b>Write it down now.</b> It is not stored anywhere and will not be shown again.
+            If it is lost, create a new file. Send the code to the installer by a
+            <b>different channel</b> than the file.
+        </p>
+    </div>
+</div>
+
+<a class="btn btn-success btn-lg me-2" asp-action="Download" asp-route-token="@Model.DownloadToken">
+    Download @Model.FileName
+</a>
+<a class="btn btn-outline-secondary btn-lg" asp-action="Index">Back</a>
+<p class="text-muted mt-3">The download link is valid for 10 minutes.</p>

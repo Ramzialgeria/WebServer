@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+
+		<meta name="viewport"
+			  content="width=device-width, initial-scale=1.0" />
+
+		<title>
+			@ViewData["Title"] - Client Monitoring
+		</title>
+
+		<link rel="stylesheet"
+			  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+
+		<link rel="stylesheet"
+			  href="~/css/site.css"
+			  asp-append-version="true" />
+	</head>
+
+	<body class="bg-light">
+
+		<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+			<div class="container">
+
+				<a class="navbar-brand"
+				   asp-controller="Home"
+				   asp-action="Index">
+					Client Monitoring
+				</a>
+
+				<div class="collapse navbar-collapse">
+				@if (User.Identity?.IsAuthenticated == true)
+				{
+					<ul class="navbar-nav me-auto">
+						<li class="nav-item">
+							<a class="nav-link" asp-controller="Activation" asp-action="Index">Activation</a>
+						</li>
+					</ul>
+				}
+					<partial name="_LoginPartial" />
+				</div>
+
+			</div>
+		</nav>
+
+		<main class="container py-4">
+			@RenderBody()
+		</main>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+		@await RenderSectionAsync("Scripts", required: false)
+
+	</body>
+</html>
