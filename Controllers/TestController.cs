@@ -6,12 +6,12 @@ namespace ClientMonitoring.Web.Controllers;
 
 public class TestController : Controller
 {
-    private readonly UserManager<ApplicationUser> _userManager;
-    private readonly SignInManager<ApplicationUser> _signInManager;
+    private readonly UserManager<AppUser> _userManager;
+    private readonly SignInManager<AppUser> _signInManager;
 
     public TestController(
-        UserManager<ApplicationUser> userManager,
-        SignInManager<ApplicationUser> signInManager)
+        UserManager<AppUser> userManager,
+        SignInManager<AppUser> signInManager)
     {
         _userManager = userManager;
         _signInManager = signInManager;
@@ -28,7 +28,7 @@ public class TestController : Controller
             return Content("USER NOT FOUND");
 
         var result = await _signInManager.PasswordSignInAsync(
-            user.UserName!,
+            user.Username!,
             password,
             false,
             false);

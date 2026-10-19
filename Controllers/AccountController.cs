@@ -1,18 +1,21 @@
-using ClientMonitoring.Web.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using ClientMonitoring.Web.Models;
+using IdentityAppUser = ClientMonitoring.Web.Domain.Identity.AppUser;
 
 namespace ClientMonitoring.Web.Controllers;
 
 public class AccountController : Controller
 {
-    private readonly SignInManager<ApplicationUser> _signInManager;
-    private readonly UserManager<ApplicationUser> _userManager;
-    public AccountController(UserManager<ApplicationUser> userManager,
-        SignInManager<ApplicationUser> signInManager)
+    private readonly UserManager<IdentityAppUser> _userManager;
+    private readonly SignInManager<IdentityAppUser> _signInManager;
+
+    public AccountController(
+        UserManager<IdentityAppUser> userManager,
+        SignInManager<IdentityAppUser> signInManager)
     {
-        _signInManager = signInManager;
         _userManager = userManager;
+        _signInManager = signInManager;
     }
 
     [HttpGet]
@@ -26,8 +29,7 @@ public class AccountController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Login(
-        LoginVm model)
+    public async Task<IActionResult> Login(LoginVm model)
     {
         if (!ModelState.IsValid)
             return View(model);
@@ -61,34 +63,12 @@ public class AccountController : Controller
     public async Task<IActionResult> Logout()
     {
         await _signInManager.SignOutAsync();
-
         return RedirectToAction(nameof(Login));
     }
 
+    [HttpGet]
     public IActionResult AccessDenied()
     {
         return View();
-    }
-
-    [HttpGet]
-    public async Task<IActionResult> ResetAdminPassword()
-    {
-        var user = await _userManager.FindByNameAsync("admin");
-
-        if (user == null)
-            return NotFound("Admin user not found.");
-
-        const string newPassword = "Admin123";
-
-        var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-
-        var result = await _userManager.ResetPasswordAsync(
-            user, token, newPassword);
-
-        if (!result.Succeeded)
-            return BadRequest(string.Join(
-                "; ", result.Errors.Select(e => e.Description)));
-
-        return Content("Admin password reset successfully.");
     }
 }

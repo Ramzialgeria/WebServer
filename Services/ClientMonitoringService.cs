@@ -5,8 +5,8 @@ using Microsoft.EntityFrameworkCore;
 namespace ClientMonitoring.Web.Services;
 public class ClientMonitoringService
 {
-    readonly ApplicationDbContext _db;
-    public ClientMonitoringService(ApplicationDbContext db)=>_db=db;
+    readonly ApplicationDbContext1 _db;
+    public ClientMonitoringService(ApplicationDbContext1 db)=>_db=db;
     public async Task<List<ClientStatusDto>> GetAsync()=> (await _db.Clients.AsNoTracking().OrderBy(x=>x.ClientCode).ToListAsync()).Select(ToDto).ToList();
     public static ClientStatusDto ToDto(Client c)=>new()
     {

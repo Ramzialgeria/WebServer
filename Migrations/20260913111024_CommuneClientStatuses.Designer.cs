@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ClientMonitoring.Web.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(ApplicationDbContext1))]
     [Migration("20260913111024_CommuneClientStatuses")]
     partial class CommuneClientStatuses
     {

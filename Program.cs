@@ -1,4 +1,5 @@
 using ClientMonitoring.Web.Data;
+using ClientMonitoring.Web.Domain.Identity;
 using ClientMonitoring.Web.Hubs;
 using ClientMonitoring.Web.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -17,31 +18,54 @@ builder.Services.AddDbContext<StructureDbContext>(options =>
     options.UseNpgsql(
         builder.Configuration.GetConnectionString("StructureDb")));
 
-builder.Services.AddDbContext<ElectionDbContext>(options =>
-    options.UseNpgsql(
-        builder.Configuration.GetConnectionString("ElectionDb")));
+//builder.Services.AddDbContext<ElectionDbContext>(options =>
+//    options.UseNpgsql(
+//        builder.Configuration.GetConnectionString("ElectionDb")));
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<ApplicationDbContext1>(options =>
     options.UseNpgsql(
         builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Existing election database — read only
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString(
+            "PostgresqlReadAppConnection")));
+builder.Services.AddDbContext<ReadApplicationDbContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString(
+            "PostgresqlReadAppConnection")));
+
+// Existing identity database
+builder.Services.AddDbContext<
+    IdentityDbContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString(
+            "IdentityConnection")));
 
 
 // ---------------------------------------------------------
 // ASP.NET Core Identity - Web users
 // ---------------------------------------------------------
 
-
 builder.Services
-    .AddIdentityCore<ApplicationUser>(options =>
-    {
-        options.Password.RequiredLength = 8;
-        options.Password.RequireNonAlphanumeric = false;
+    .AddIdentityCore<ClientMonitoring.Web.Domain.Identity.AppUser>()
+    .AddRoles<ClientMonitoring.Web.Domain.Identity.AppRole>()
+    .AddEntityFrameworkStores<IdentityDbContext>()
+    .AddSignInManager()
+    .AddDefaultTokenProviders();
 
-        options.SignIn.RequireConfirmedAccount = false;
-    })
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddSignInManager();
+//builder.Services
+//    .AddIdentityCore<ApplicationUser>(options =>
+//    {
+//        options.Password.RequiredLength = 8;
+//        options.Password.RequireNonAlphanumeric = false;
+
+//        options.SignIn.RequireConfirmedAccount = false;
+//    })
+//    .AddRoles<IdentityRole>()
+//    .AddEntityFrameworkStores<ApplicationDbContext>()
+//    .AddSignInManager();
 
 // ---------------------------------------------------------
 // Client secret hashing
@@ -58,18 +82,6 @@ var jwtSection = builder.Configuration.GetSection("Jwt");
 
 var jwtKey = jwtSection["Key"]
     ?? throw new InvalidOperationException("JWT Key is missing.");
-
-builder.Services
-    .AddIdentityCore<ApplicationUser>(options =>
-    {
-        options.Password.RequiredLength = 8;
-        options.Password.RequireNonAlphanumeric = false;
-        options.SignIn.RequireConfirmedAccount = false;
-    })
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddSignInManager()
-     .AddDefaultTokenProviders();
 
 builder.Services
     .AddAuthentication(options =>
@@ -140,92 +152,92 @@ var app = builder.Build();
 // Database migration + seed
 // ---------------------------------------------------------
 
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
+//using (var scope = app.Services.CreateScope())
+//{
+//    var services = scope.ServiceProvider;
 
-    var db = services.GetRequiredService<ApplicationDbContext>();
+//    var db = services.GetRequiredService<ApplicationDbContext>();
 
-    await db.Database.MigrateAsync();
+//    await db.Database.MigrateAsync();
 
 
-    // -----------------------------------------------------
-    // Seed admin user
-    // -----------------------------------------------------
+//    // -----------------------------------------------------
+//    // Seed admin user
+//    // -----------------------------------------------------
 
-    var userManager =
-     services.GetRequiredService<UserManager<ApplicationUser>>();
+//    //var userManager =
+//    // services.GetRequiredService<UserManager<ApplicationUser>>();
 
-    var admin = await userManager.FindByNameAsync("admin");
+//    //var admin = await userManager.FindByNameAsync("admin");
 
-    if (admin == null)
-    {
-        admin = new ApplicationUser
-        {
-            UserName = "admin",
-            Email = "admin@clientmonitoring.local",
-            EmailConfirmed = true
-        };
+//    //if (admin == null)
+//    //{
+//    //    admin = new ApplicationUser
+//    //    {
+//    //        UserName = "admin",
+//    //        Email = "admin@clientmonitoring.local",
+//    //        EmailConfirmed = true
+//    //    };
 
-        var result = await userManager.CreateAsync(
-            admin,
-            "Admin1234");
+//    //    var result = await userManager.CreateAsync(
+//    //        admin,
+//    //        "Admin1234");
 
-        if (!result.Succeeded)
-        {
-            var errors = string.Join(
-                ", ",
-                result.Errors.Select(x => x.Description));
+//    //    if (!result.Succeeded)
+//    //    {
+//    //        var errors = string.Join(
+//    //            ", ",
+//    //            result.Errors.Select(x => x.Description));
 
-            throw new Exception(
-                $"Unable to create admin user: {errors}");
-        }
-    }
-    else
-    {
-        // Make sure the existing user has the expected email
-        admin.Email = "admin@clientmonitoring.local";
-        admin.EmailConfirmed = true;
+//    //        throw new Exception(
+//    //            $"Unable to create admin user: {errors}");
+//    //    }
+//    //}
+//    //else
+//    //{
+//    //    // Make sure the existing user has the expected email
+//    //    admin.Email = "admin@clientmonitoring.local";
+//    //    admin.EmailConfirmed = true;
 
-        var updateResult = await userManager.UpdateAsync(admin);
+//    //    var updateResult = await userManager.UpdateAsync(admin);
 
-        if (!updateResult.Succeeded)
-        {
-            var errors = string.Join(
-                ", ",
-                updateResult.Errors.Select(x => x.Description));
+//    //    if (!updateResult.Succeeded)
+//    //    {
+//    //        var errors = string.Join(
+//    //            ", ",
+//    //            updateResult.Errors.Select(x => x.Description));
 
-            throw new Exception(
-                $"Unable to update admin user: {errors}");
-        }
+//    //        throw new Exception(
+//    //            $"Unable to update admin user: {errors}");
+//    //    }
 
         
-    }
+//    //}
 
 
-    // -----------------------------------------------------
-    // Seed test client
-    // -----------------------------------------------------
+//    // -----------------------------------------------------
+//    // Seed test client
+//    // -----------------------------------------------------
 
-    if (!await db.Clients.AnyAsync())
-    {
-        var client = new Client
-        {
-            ClientCode = "PC-001",
-            //MachineName = "PC-001"
-        };
+//    //if (!await db.Clients.AnyAsync())
+//    //{
+//    //    var client = new Client
+//    //    {
+//    //        ClientCode = "PC-001",
+//    //        //MachineName = "PC-001"
+//    //    };
 
-        client.ClientSecretHash =
-            new PasswordHasher<Client>()
-                .HashPassword(
-                    client,
-                    "Client1234!");
+//    //    client.ClientSecretHash =
+//    //        new PasswordHasher<Client>()
+//    //            .HashPassword(
+//    //                client,
+//    //                "Client1234!");
 
-        db.Clients.Add(client);
+//    //    db.Clients.Add(client);
 
-        await db.SaveChangesAsync();
-    }
-}
+//    //    await db.SaveChangesAsync();
+//    //}
+//}
 
 
 // ---------------------------------------------------------

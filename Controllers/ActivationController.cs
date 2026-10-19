@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ClientMonitoring.Web.Data;
 using ClientMonitoring.Web.Models;
 using ClientMonitoring.Web.Services;
+using ClientMonitoring.Web.Domain.Entities;
 
 namespace ClientMonitoring.Web.Controllers;
 
@@ -15,19 +16,19 @@ namespace ClientMonitoring.Web.Controllers;
 public class ActivationController : Controller
 {
     private readonly StructureDbContext _structureDb;
-    private readonly ElectionDbContext _electionDb;
-    private readonly ApplicationDbContext _db;
+    private readonly IdentityDbContext _identityDb;
+    private readonly ReadApplicationDbContext _electionDb;
     private readonly ActivationIssuer _issuer;
 
     public ActivationController(
         StructureDbContext structureDb,
-        ElectionDbContext electionDb,
-        ApplicationDbContext db,
+        ReadApplicationDbContext electionDb,
+       IdentityDbContext identityDb,
         ActivationIssuer issuer)
     {
         _structureDb = structureDb;
         _electionDb = electionDb;
-        _db = db;
+        _identityDb = identityDb;
         _issuer = issuer;
     }
 
@@ -69,6 +70,7 @@ public class ActivationController : Controller
     // CREATE ALL
     // ============================================================
 
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     [ResponseCache(
@@ -91,16 +93,19 @@ public class ActivationController : Controller
 
         if (activationType != "APC" && activationType != "APW")
         {
-            TempData["Error"] =
-                "Activation type must be APC or APW.";
-
+            TempData["Error"] = "Activation type must be APC or APW.";
             return RedirectToAction(nameof(Index));
         }
 
-        if (string.IsNullOrWhiteSpace(codeWilaya))
+        // "ALL" means generate activation files for every Wilaya.
+        bool generateAll = codeWilaya.Equals(
+            "ALL",
+            StringComparison.OrdinalIgnoreCase);
+
+        if (!generateAll && string.IsNullOrWhiteSpace(codeWilaya))
         {
             TempData["Error"] =
-                "Please select a Wilaya.";
+                "Please select a Wilaya or choose All Wilayas.";
 
             return RedirectToAction(nameof(Index));
         }
@@ -109,37 +114,56 @@ public class ActivationController : Controller
         {
             var issuedFiles = new List<IssuedZipFile>();
 
-            if (activationType == "APC")
+            if (generateAll)
             {
-                issuedFiles = await GenerateApcFiles(
-                    codeWilaya);
+                var wilayaCodes = await _structureDb.Wilayas
+                    .AsNoTracking()
+                    .OrderBy(x => x.codeWilaya)
+                    .Select(x => x.codeWilaya)
+                    .ToListAsync();
+
+                if (wilayaCodes.Count == 0)
+                {
+                    TempData["Error"] = "No Wilayas were found.";
+                    return RedirectToAction(nameof(Index));
+                }
+
+                foreach (var code in wilayaCodes)
+                {
+                    if (activationType == "APC")
+                    {
+                        // Each Wilaya produces one APC file per commune.
+                        issuedFiles.AddRange(
+                            await GenerateApcFiles(code));
+                    }
+                    else
+                    {
+                        // Each Wilaya produces exactly one APW file.
+                        issuedFiles.AddRange(
+                            await GenerateApwFiles(code));
+                    }
+                }
+            }
+            else if (activationType == "APC")
+            {
+                issuedFiles = await GenerateApcFiles(codeWilaya);
             }
             else
             {
-                issuedFiles = await GenerateApwFiles(
-                    codeWilaya);
+                issuedFiles = await GenerateApwFiles(codeWilaya);
             }
 
             if (issuedFiles.Count == 0)
             {
                 TempData["Error"] =
-                    "No activation file was generated.";
+                    "No activation files were generated.";
 
                 return RedirectToAction(nameof(Index));
             }
 
-            var wilaya = await _structureDb.Wilayas
-                .AsNoTracking()
-                .Where(x => x.codeWilaya == codeWilaya)
-                .Select(x => new
-                {
-                    x.codeWilaya,
-                    x.Libele
-                })
-                .FirstOrDefaultAsync();
-
-            var zipFileName =
-                $"Activation_{activationType}_{codeWilaya}.zip";
+            var zipFileName = generateAll
+                ? $"Activation_{activationType}_ALL.zip"
+                : $"Activation_{activationType}_{codeWilaya}.zip";
 
             byte[] zipBytes;
 
@@ -152,15 +176,16 @@ public class ActivationController : Controller
                 {
                     foreach (var issued in issuedFiles)
                     {
+                        // Use only the filename, not any directory path.
+                        var entryName = Path.GetFileName(issued.FileName);
+
                         var entry = archive.CreateEntry(
-                            issued.FileName,
+                            entryName,
                             CompressionLevel.Fastest);
 
-                        await using var entryStream =
-                            entry.Open();
+                        await using var entryStream = entry.Open();
 
-                        await entryStream.WriteAsync(
-                            issued.File);
+                        await entryStream.WriteAsync(issued.File);
                     }
                 }
 
@@ -169,7 +194,10 @@ public class ActivationController : Controller
 
             TempData["Message"] =
                 $"{issuedFiles.Count} activation file(s) generated " +
-                $"for {activationType} / Wilaya {codeWilaya}.";
+                $"for {activationType}" +
+                (generateAll
+                    ? " across all Wilayas."
+                    : $" / Wilaya {codeWilaya}.");
 
             return File(
                 zipBytes,
@@ -185,17 +213,21 @@ public class ActivationController : Controller
             TempData["Error"] = ex.Message;
         }
         catch (Exception ex)
-        {
-            TempData["Error"] =
-                "An unexpected error occurred while generating " +
-                "the activation files.";
+{
+    // Log the complete exception, including inner exceptions.
+    Console.Error.WriteLine(ex.ToString());
 
-            // Replace with your logger if desired.
-            Console.WriteLine(ex);
-        }
+    // If using Visual Studio, inspect this in the Output window.
+    System.Diagnostics.Debug.WriteLine(ex.ToString());
+
+    TempData["Error"] = ex.ToString();
+
+    return RedirectToAction(nameof(Index));
+}
 
         return RedirectToAction(nameof(Index));
     }
+
 
     // ============================================================
     // APC
@@ -285,15 +317,25 @@ public class ActivationController : Controller
         // 6. Load ALL users for these communes
         // --------------------------------------------------------
 
-        var users = await _db.CommuneUsers
+        var users = await _identityDb.Users
                  .AsNoTracking()
-                 .Where(x => communeCodes.Contains(x.IdStructure))
+                 .Where(x => communeCodes.Contains(x.IdStructure) &&
+                        x.Roles.Any(r => r.Name == "DelegueWilaya" ||
+                            r.Name == "SaisieCommune" ||
+                            r.Name == "Magistrat" ||
+                            r.Name == "Delegue"))
                  .Select(x => new ActivationUserDto
                  {
                      Id = x.Id,
-                     UserName = x.Username,
+                     UserName = x.UserName,
                      PasswordHash = x.PasswordHash,
-                     Role = x.Role,
+                     Role = x.Roles
+                            .Where(r =>r.Name == "DelegueWilaya" ||
+                                r.Name == "SaisieCommune" ||
+                                r.Name == "Magistrat" ||
+                                r.Name == "Delegue")
+                            .Select(r => r.Name!)
+                            .FirstOrDefault() ?? "",
                      CodeStructure = x.IdStructure
                  })
                  .ToListAsync();
@@ -475,10 +517,10 @@ public class ActivationController : Controller
                     {
                         Id = liste.IdListe,
 
-                        Lib = liste.LibelleAr,
+                        Lib = liste.PartiePolitique.LibelleAr,
 
                         NumIdentifiant =
-                            liste.NumIdentifiant,
+                            liste.PartiePolitique.NumIdentifiant,
 
                         Candidats = listeCandidats
                             .OrderBy(x => x.Order)
@@ -488,11 +530,11 @@ public class ActivationController : Controller
                                 Id = candidat.IdCandidat,
 
                                 FullNameAr =
-                                    $"{candidat.NomAr} {candidat.PrenomAr}"
+                                    $"{candidat.CandidatInfo.NomAr} {candidat.CandidatInfo.PrenomAr}"
                                         .Trim(),
 
                                 FullNameFr =
-                                    $"{candidat.NomFr} {candidat.PrenomFr}"
+                                    $"{candidat.CandidatInfo.NomFr} {candidat.CandidatInfo.PrenomFr}"
                                         .Trim(),
 
                                 Ordre = candidat.Order
@@ -622,14 +664,14 @@ public class ActivationController : Controller
         // 7. Users of all communes in Wilaya
         // --------------------------------------------------------
 
-        var users = await _db.CommuneUsers
+        var users = await _identityDb.Users
             .AsNoTracking()
             .Where(x =>
                 communeCodes.Contains(x.IdStructure))
             .Select(x => new ActivationUserDto
             {
                 Id = x.Id,
-                UserName = x.Username,
+                UserName = x.UserName,
                 PasswordHash = x.PasswordHash,
                 CodeStructure = x.IdStructure
             })
@@ -806,10 +848,10 @@ public class ActivationController : Controller
                     {
                         Id = liste.IdListe,
 
-                        Lib = liste.LibelleAr,
+                        Lib = liste.PartiePolitique.LibelleAr,
 
                         NumIdentifiant =
-                            liste.NumIdentifiant,
+                            liste.PartiePolitique.NumIdentifiant,
 
                         Candidats = listeCandidats
                             .OrderBy(x => x.Order)
@@ -819,11 +861,11 @@ public class ActivationController : Controller
                                 Id = candidat.IdCandidat,
 
                                 FullNameAr =
-                                    $"{candidat.NomAr} {candidat.PrenomAr}"
+                                    $"{candidat.CandidatInfo.NomAr} {candidat.CandidatInfo.PrenomAr}"
                                         .Trim(),
 
                                 FullNameFr =
-                                    $"{candidat.NomFr} {candidat.PrenomFr}"
+                                    $"{candidat.CandidatInfo.NomFr} {candidat.CandidatInfo.PrenomFr}"
                                         .Trim(),
 
                                 Ordre = candidat.Order
@@ -843,7 +885,7 @@ public class ActivationController : Controller
 
                     PasswordHash = x.PasswordHash,
 
-                    Role = "Admin",
+                    Role = x.Role,
 
                     CodeStructure = x.CodeStructure
                 })
@@ -907,7 +949,7 @@ public class ActivationController : Controller
 
     private sealed class ActivationUserDto
     {
-        public long Id { get; set; }
+        public string Id { get; set; }
 
         public string UserName { get; set; } = "";
 

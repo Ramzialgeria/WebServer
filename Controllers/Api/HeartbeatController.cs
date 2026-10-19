@@ -9,13 +9,14 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClientMonitoring.Web.Controllers.Api;
+
 [ApiController]
 [Route("api")]
 public class HeartbeatController : ControllerBase
 {
-    readonly ApplicationDbContext _db;
+    readonly ApplicationDbContext1 _db;
     readonly IHubContext<MonitoringHub> _hub;
-    public HeartbeatController(ApplicationDbContext d, IHubContext<MonitoringHub> h)
+    public HeartbeatController(ApplicationDbContext1 d, IHubContext<MonitoringHub> h)
     {
         _db = d;
         _hub = h;

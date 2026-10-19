@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ClientMonitoring.Web.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(ApplicationDbContext1))]
     [Migration("20260914074115_ServerNetworkConnected")]
     partial class ServerNetworkConnected
     {

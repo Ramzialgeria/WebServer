@@ -98,6 +98,11 @@ public class ActivationIssuer
             code,
             File.ReadAllText(PrivateKeyPath));
 
+        // TEMPORARY TEST: verify that the generated file can be decrypted.
+        using var rsa = RSA.Create();
+        rsa.FromXmlString(File.ReadAllText(PrivateKeyPath));
+        string publicKeyXml = rsa.ToXmlString(false);
+
         // the code itself is never logged or stored
         _logger.LogInformation(
             "Activation issued by {User}: server {ServerCode}, {Type} {CommuneCode}, id {ActivationId}",
@@ -118,4 +123,6 @@ public class ActivationIssuer
         var chars = value.Where(c => char.IsLetterOrDigit(c) || c == '-' || c == '_').ToArray();
         return chars.Length == 0 ? "commune" : new string(chars);
     }
+
+    
 }

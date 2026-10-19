@@ -1,0 +1,595 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\services\\activationissuer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:services\\activationissuer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\controllers\\activationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:controllers\\activationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\services\\activationfilewriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:services\\activationfilewriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\models\\activationvm.cs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:models\\activationvm.cs||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\data\\configuration\\listeelectoralconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:data\\configuration\\listeelectoralconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\data\\identitydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:data\\identitydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\data\\readapplicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:data\\readapplicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\data\\structuredbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:data\\structuredbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\controllers\\api\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:controllers\\api\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\models\\models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:models\\models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\data\\electiondbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:data\\electiondbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\data\\configuration\\structureconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:data\\configuration\\structureconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\data\\configuration\\candidatureconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:data\\configuration\\candidatureconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\data\\applicationdbcontext1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:data\\applicationdbcontext1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\controllers\\api\\heartbeatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:controllers\\api\\heartbeatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\views\\activation\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:views\\activation\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\domain\\identity\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:domain\\identity\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\migrations\\structuredb\\20261009082648_firststructure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:migrations\\structuredb\\20261009082648_firststructure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\services\\activationpackagepreparer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:services\\activationpackagepreparer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\views\\account\\login.cshtml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:views\\account\\login.cshtml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\migrations\\20260913111024_communeclientstatuses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:migrations\\20260913111024_communeclientstatuses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\hubs\\monitoringhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:hubs\\monitoringhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\wwwroot\\js\\monitoring.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:wwwroot\\js\\monitoring.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\views\\shared\\_loginpartial.cshtml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:views\\shared\\_loginpartial.cshtml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\views\\home\\index.cshtml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:views\\home\\index.cshtml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\views\\shared\\_layout.cshtml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:views\\shared\\_layout.cshtml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|d:\\projects ina\\clientmonitoring\\clientmonitoring.web\\migrations\\20261013123118_syncapplicationdbmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33BFC8CC-3220-1BE4-FC09-67F22639D72C}|ClientMonitoring.Web.csproj|solutionrelative:migrations\\20261013123118_syncapplicationdbmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:13:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ActivationFileWriter.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Services\\ActivationFileWriter.cs",
+              "RelativeDocumentMoniker": "Services\\ActivationFileWriter.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Services\\ActivationFileWriter.cs",
+              "RelativeToolTip": "Services\\ActivationFileWriter.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAuwBMAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-19T08:49:58.198Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ActivationController.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Controllers\\ActivationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ActivationController.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Controllers\\ActivationController.cs",
+              "RelativeToolTip": "Controllers\\ActivationController.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAtwFEAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-03T08:12:06.439Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAwwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T21:30:31.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-12T13:12:38.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ActivationVm.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Models\\ActivationVm.cs",
+              "RelativeDocumentMoniker": "Models\\ActivationVm.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Models\\ActivationVm.cs",
+              "RelativeToolTip": "Models\\ActivationVm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T07:58:40.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ActivationIssuer.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Services\\ActivationIssuer.cs",
+              "RelativeDocumentMoniker": "Services\\ActivationIssuer.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Services\\ActivationIssuer.cs",
+              "RelativeToolTip": "Services\\ActivationIssuer.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAUwE0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T09:39:09.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{99b8fa2f-ab90-4f57-9c32-949f146f1914}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ListeElectoralConfiguration.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\Configuration\\ListeElectoralConfiguration.cs",
+              "RelativeDocumentMoniker": "Data\\Configuration\\ListeElectoralConfiguration.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\Configuration\\ListeElectoralConfiguration.cs",
+              "RelativeToolTip": "Data\\Configuration\\ListeElectoralConfiguration.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAgwFcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T14:55:20.471Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAswFYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T14:25:34.663Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IdentityDbContext.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\IdentityDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\IdentityDbContext.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\IdentityDbContext.cs",
+              "RelativeToolTip": "Data\\IdentityDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T14:08:21.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ReadApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\ReadApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ReadApplicationDbContext.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\ReadApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ReadApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T14:38:25.524Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StructureDbContext.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\StructureDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\StructureDbContext.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\StructureDbContext.cs",
+              "RelativeToolTip": "Data\\StructureDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T09:12:12.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Controllers\\Api\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Api\\AuthController.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Controllers\\Api\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\Api\\AuthController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAtwBIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T13:48:54.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Models.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Models\\Models.cs",
+              "RelativeDocumentMoniker": "Models\\Models.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Models\\Models.cs",
+              "RelativeToolTip": "Models\\Models.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAlwFQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-09T08:24:35.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CandidatureConfiguration.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\Configuration\\CandidatureConfiguration.cs",
+              "RelativeDocumentMoniker": "Data\\Configuration\\CandidatureConfiguration.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\Configuration\\CandidatureConfiguration.cs",
+              "RelativeToolTip": "Data\\Configuration\\CandidatureConfiguration.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAUwAkAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T14:52:41.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ElectionDbContext.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\ElectionDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ElectionDbContext.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\ElectionDbContext.cs",
+              "RelativeToolTip": "Data\\ElectionDbContext.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAQwAsAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T14:55:29.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "StructureConfiguration.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\Configuration\\StructureConfiguration.cs",
+              "RelativeDocumentMoniker": "Data\\Configuration\\StructureConfiguration.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\Configuration\\StructureConfiguration.cs",
+              "RelativeToolTip": "Data\\Configuration\\StructureConfiguration.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAcwCoAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T14:55:23.139Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ApplicationDbContext1.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\ApplicationDbContext1.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext1.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Data\\ApplicationDbContext1.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext1.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAwwDsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T14:27:51.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAowCQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T13:52:14.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "HeartbeatController.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Controllers\\Api\\HeartbeatController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Api\\HeartbeatController.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Controllers\\Api\\HeartbeatController.cs",
+              "RelativeToolTip": "Controllers\\Api\\HeartbeatController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T14:25:29.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-18T14:03:37.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAwwCcAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-03T08:13:17.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Views\\Activation\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Activation\\Index.cshtml",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Views\\Activation\\Index.cshtml",
+              "RelativeToolTip": "Views\\Activation\\Index.cshtml",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAAAJcAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-03T08:24:07.722Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "TestController.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Controllers\\TestController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TestController.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Controllers\\TestController.cs",
+              "RelativeToolTip": "Controllers\\TestController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T21:54:21.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AppUser.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Domain\\Identity\\AppUser.cs",
+              "RelativeDocumentMoniker": "Domain\\Identity\\AppUser.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Domain\\Identity\\AppUser.cs",
+              "RelativeToolTip": "Domain\\Identity\\AppUser.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAIwIQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T13:29:02.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T14:07:46.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "20261013123118_SyncApplicationDbModel.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Migrations\\20261013123118_SyncApplicationDbModel.cs",
+              "RelativeDocumentMoniker": "Migrations\\20261013123118_SyncApplicationDbModel.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Migrations\\20261013123118_SyncApplicationDbModel.cs",
+              "RelativeToolTip": "Migrations\\20261013123118_SyncApplicationDbModel.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T12:31:18.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "20261009082648_firstStructure.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Migrations\\StructureDb\\20261009082648_firstStructure.cs",
+              "RelativeDocumentMoniker": "Migrations\\StructureDb\\20261009082648_firstStructure.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Migrations\\StructureDb\\20261009082648_firstStructure.cs",
+              "RelativeToolTip": "Migrations\\StructureDb\\20261009082648_firstStructure.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAowGEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-09T08:26:48.799Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ActivationPackagePreparer.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Services\\ActivationPackagePreparer.cs",
+              "RelativeDocumentMoniker": "Services\\ActivationPackagePreparer.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Services\\ActivationPackagePreparer.cs",
+              "RelativeToolTip": "Services\\ActivationPackagePreparer.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAkwLYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-03T08:17:54.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "monitoring.js",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\wwwroot\\js\\monitoring.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\monitoring.js",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\wwwroot\\js\\monitoring.js",
+              "RelativeToolTip": "wwwroot\\js\\monitoring.js",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAmwG4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-09-12T07:29:00.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "20260913111024_CommuneClientStatuses.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Migrations\\20260913111024_CommuneClientStatuses.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260913111024_CommuneClientStatuses.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Migrations\\20260913111024_CommuneClientStatuses.cs",
+              "RelativeToolTip": "Migrations\\20260913111024_CommuneClientStatuses.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-13T11:10:24.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-11T14:12:56.998Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "MonitoringHub.cs",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Hubs\\MonitoringHub.cs",
+              "RelativeDocumentMoniker": "Hubs\\MonitoringHub.cs",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Hubs\\MonitoringHub.cs",
+              "RelativeToolTip": "Hubs\\MonitoringHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-30T10:13:57.897Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAQwDQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-11T14:13:33.18Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-11T21:35:29.276Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "D:\\Projects INA\\ClientMonitoring\\ClientMonitoring.Web\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-11T21:58:36.827Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

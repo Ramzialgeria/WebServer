@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ClientMonitoring.Web.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 public class ElectionDbContext : DbContext
 {

@@ -13,10 +13,10 @@ namespace ClientMonitoring.Web.Controllers.Api;
 [Route("api/auth")] 
 public class AuthController:ControllerBase
 {
-    ApplicationDbContext _db;
+    ApplicationDbContext1 _db;
     readonly IPasswordHasher<Client> _hasher;
     readonly IConfiguration _cfg;
-    public AuthController(ApplicationDbContext d,IPasswordHasher<Client> h,IConfiguration c)
+    public AuthController(ApplicationDbContext1 d,IPasswordHasher<Client> h,IConfiguration c)
     {
         _db=d;
         _hasher=h;

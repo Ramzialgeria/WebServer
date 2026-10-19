@@ -210,6 +210,7 @@ D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\ClientMon
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\ClientMonitoring.Web.runtimeconfig.json
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\ClientMonitoring.Web.dll
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\ClientMonitoring.Web.pdb
+D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\BCrypt-Net-Next.dll
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\Humanizer.dll
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
@@ -251,6 +252,7 @@ D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\Microsoft
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\Mono.TextTemplating.dll
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\Npgsql.dll
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\BouncyCastle.Crypto.dll
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\System.CodeDom.dll
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\System.Composition.AttributedModel.dll
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\System.Composition.Convention.dll
@@ -396,6 +398,7 @@ D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\obj\Debug\net9.0\compresse
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\obj\Debug\net9.0\compressed\nezrqnk58p-muycvpuwrr.gz
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\obj\Debug\net9.0\compressed\v0zgfp0y55-87fc7y1x7t.gz
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\obj\Debug\net9.0\compressed\yfc7ypekbg-mlv21k5csn.gz
+D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\obj\Debug\net9.0\compressed\qd2fjbsalm-xuy156c9gp.gz
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\obj\Debug\net9.0\staticwebassets.build.json
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\obj\Debug\net9.0\staticwebassets.development.json
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\obj\Debug\net9.0\staticwebassets.build.endpoints.json
@@ -412,6 +415,3 @@ D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\obj\Debug\net9.0\refint\Cl
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\obj\Debug\net9.0\ClientMonitoring.Web.pdb
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\obj\Debug\net9.0\ClientMonitoring.Web.genruntimeconfig.cache
 D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\obj\Debug\net9.0\ref\ClientMonitoring.Web.dll
-D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\obj\Debug\net9.0\compressed\qd2fjbsalm-xuy156c9gp.gz
-D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\BCrypt-Net-Next.dll
-D:\Projects INA\ClientMonitoring\ClientMonitoring.Web\bin\Debug\net9.0\BouncyCastle.Crypto.dll

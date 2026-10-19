@@ -1,7 +1,9 @@
+
 @using Microsoft.AspNetCore.Identity
-@using ClientMonitoring.Web.Data
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+@using ClientMonitoring.Web.Domain.Identity
+
+@inject SignInManager<ClientMonitoring.Web.Domain.Identity.AppUser> SignInManager
+@inject UserManager<ClientMonitoring.Web.Domain.Identity.AppUser> UserManager
 
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
@@ -13,11 +15,11 @@
         </li>
 
         <li class="nav-item">
-            <form asp-area="Identity"
-                  asp-page="/Account/Logout"
+            <form asp-controller="Account"
+                  asp-action="Logout"
                   method="post">
-                <button type="submit"
-                        class="nav-link btn btn-link">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="nav-link btn btn-link">
                     Déconnexion
                 </button>
             </form>
@@ -27,8 +29,8 @@
     {
         <li class="nav-item">
             <a class="nav-link"
-               asp-area="Identity"
-               asp-page="/Account/Login">
+               asp-controller="Account"
+               asp-action="Login">
                 Connexion
             </a>
         </li>
