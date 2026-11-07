@@ -18,10 +18,6 @@ builder.Services.AddDbContext<StructureDbContext>(options =>
     options.UseNpgsql(
         builder.Configuration.GetConnectionString("StructureDb")));
 
-//builder.Services.AddDbContext<ElectionDbContext>(options =>
-//    options.UseNpgsql(
-//        builder.Configuration.GetConnectionString("ElectionDb")));
-
 builder.Services.AddDbContext<ApplicationDbContext1>(options =>
     options.UseNpgsql(
         builder.Configuration.GetConnectionString("DefaultConnection")));

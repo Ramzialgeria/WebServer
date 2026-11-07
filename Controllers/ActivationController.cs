@@ -1,7 +1,7 @@
 using System.IO.Compression;
 using System.Text.Json;
 using System.Text.Encodings.Web;
-
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,17 +19,20 @@ public class ActivationController : Controller
     private readonly IdentityDbContext _identityDb;
     private readonly ReadApplicationDbContext _electionDb;
     private readonly ActivationIssuer _issuer;
+    private readonly IMemoryCache _cache;
 
     public ActivationController(
-        StructureDbContext structureDb,
-        ReadApplicationDbContext electionDb,
-       IdentityDbContext identityDb,
-        ActivationIssuer issuer)
+     StructureDbContext structureDb,
+     ReadApplicationDbContext electionDb,
+     IdentityDbContext identityDb,
+     ActivationIssuer issuer,
+     IMemoryCache cache)
     {
         _structureDb = structureDb;
         _electionDb = electionDb;
         _identityDb = identityDb;
         _issuer = issuer;
+        _cache = cache;
     }
 
     // ============================================================
@@ -192,17 +195,46 @@ public class ActivationController : Controller
                 zipBytes = memory.ToArray();
             }
 
-            TempData["Message"] =
-                $"{issuedFiles.Count} activation file(s) generated " +
-                $"for {activationType}" +
-                (generateAll
-                    ? " across all Wilayas."
-                    : $" / Wilaya {codeWilaya}.");
+            var codesCsv = new System.Text.StringBuilder();
+            codesCsv.AppendLine("FileName,ActivationCode");
 
-            return File(
-                zipBytes,
-                "application/zip",
-                zipFileName);
+            foreach (var issued in issuedFiles.OrderBy(x => x.FileName))
+            {
+                codesCsv.Append(CsvEscape(Path.GetFileName(issued.FileName)));
+                codesCsv.Append(',');
+                codesCsv.Append(CsvEscape(issued.Code));
+                codesCsv.AppendLine();
+            }
+
+            var downloadToken = Guid.NewGuid().ToString("N");
+
+            var owner = User.Identity?.Name ?? "";
+
+            _cache.Set(
+                $"activation-download:{downloadToken}",
+                new ActivationDownloadBundle
+                {
+                    Owner = owner,
+                    ZipBytes = zipBytes,
+                    CodesBytes = System.Text.Encoding.UTF8.GetPreamble()
+                        .Concat(System.Text.Encoding.UTF8.GetBytes(codesCsv.ToString()))
+                        .ToArray(),
+                    ZipFileName = zipFileName,
+                    CodesFileName =
+                        $"Activation_Codes_{activationType}_{(generateAll ? "ALL" : codeWilaya)}.csv"
+                },
+                new MemoryCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(15)
+                });
+
+            TempData["Message"] =
+    $"{issuedFiles.Count} activation file(s) generated for {activationType}. " +
+    "Download both files below within 15 minutes.";
+
+            TempData["ActivationDownloadToken"] = downloadToken;
+
+            return RedirectToAction(nameof(Index));
         }
         catch (ActivationInputException ex)
         {
@@ -228,6 +260,75 @@ public class ActivationController : Controller
         return RedirectToAction(nameof(Index));
     }
 
+    [HttpGet]
+    [ResponseCache(
+    NoStore = true,
+    Location = ResponseCacheLocation.None)]
+    public IActionResult DownloadZip(string token)
+    {
+        var bundle = GetDownloadBundle(token);
+
+        if (bundle == null)
+            return NotFound(
+                "The download expired or is unavailable. Generate the activation files again.");
+
+        return File(
+            bundle.ZipBytes,
+            "application/zip",
+            bundle.ZipFileName);
+    }
+
+    [HttpGet]
+    [ResponseCache(
+        NoStore = true,
+        Location = ResponseCacheLocation.None)]
+    public IActionResult DownloadCodes(string token)
+    {
+        var bundle = GetDownloadBundle(token);
+
+        if (bundle == null)
+            return NotFound(
+                "The download expired or is unavailable. Generate the activation files again.");
+
+        return File(
+            bundle.CodesBytes,
+            "text/csv; charset=utf-8",
+            bundle.CodesFileName);
+    }
+
+    private ActivationDownloadBundle? GetDownloadBundle(string? token)
+    {
+        if (string.IsNullOrWhiteSpace(token) ||
+            token.Length != 32 ||
+            !Guid.TryParseExact(token, "N", out _))
+        {
+            return null;
+        }
+
+        if (!_cache.TryGetValue(
+                $"activation-download:{token}",
+                out ActivationDownloadBundle? bundle) ||
+            bundle == null)
+        {
+            return null;
+        }
+
+        var currentUser = User.Identity?.Name ?? "";
+
+        return string.Equals(
+            bundle.Owner,
+            currentUser,
+            StringComparison.Ordinal)
+            ? bundle
+            : null;
+    }
+
+    private static string CsvEscape(string? value)
+    {
+        value ??= "";
+
+        return "\"" + value.Replace("\"", "\"\"") + "\"";
+    }
 
     // ============================================================
     // APC
@@ -290,7 +391,8 @@ public class ActivationController : Controller
         var listes = await _electionDb.ListeElectoralAPC
             .AsNoTracking()
             .Where(x =>
-                communeCodes.Contains(x.CodeCircoAPC))
+                communeCodes.Contains(x.CodeCircoAPC)
+                && x.Status == Domain.SahredKernel.StatusResult.Accepted)
             .OrderBy(x => x.CodeCircoAPC)
             .ThenBy(x => x.IdListe)
             .ToListAsync();
@@ -308,7 +410,8 @@ public class ActivationController : Controller
             : await _electionDb.Candidature
                 .AsNoTracking()
                 .Where(x =>
-                    listeIds.Contains(x.IdListeElectoral))
+                    listeIds.Contains(x.IdListeElectoral)
+                    && x.ResultFinale == Domain.SahredKernel.StatusResult.Accepted)
                 .OrderBy(x => x.IdListeElectoral)
                 .ThenBy(x => x.Order)
                 .ToListAsync();
@@ -319,21 +422,28 @@ public class ActivationController : Controller
 
         var users = await _identityDb.Users
                  .AsNoTracking()
-                 .Where(x => communeCodes.Contains(x.IdStructure) &&
-                        x.Roles.Any(r => r.Name == "DelegueWilaya" ||
-                            r.Name == "SaisieCommune" ||
-                            r.Name == "Magistrat" ||
-                            r.Name == "Delegue"))
+                 .Where(x => x.IdStructure== codeWilaya &&
+                        x.Roles.Any(r => r.Name == "Wilaya" ||
+                            r.Name == "MagistratWilaya" ||
+                            r.Name == "DelegueWilaya" ||
+                            r.Name == "MagistratCommune" ||
+                            r.Name == "DelegueCommune" ||
+                            r.Name == "DeleguePoste" ||
+                            r.Name == "AdminCommune"))
+                 
                  .Select(x => new ActivationUserDto
                  {
                      Id = x.Id,
                      UserName = x.UserName,
                      PasswordHash = x.PasswordHash,
                      Role = x.Roles
-                            .Where(r =>r.Name == "DelegueWilaya" ||
-                                r.Name == "SaisieCommune" ||
-                                r.Name == "Magistrat" ||
-                                r.Name == "Delegue")
+                            .Where(r => r.Name == "Wilaya" ||
+                            r.Name == "MagistratWilaya" ||
+                            r.Name == "DelegueWilaya" ||
+                            r.Name == "MagistratCommune" ||
+                            r.Name == "DelegueCommune" ||
+                            r.Name == "DeleguePoste" ||
+                            r.Name == "AdminCommune")
                             .Select(r => r.Name!)
                             .FirstOrDefault() ?? "",
                      CodeStructure = x.IdStructure
@@ -381,7 +491,7 @@ public class ActivationController : Controller
 
         var result = new List<IssuedZipFile>();
 
-        foreach (var commune in communes)
+        foreach (var commune in communes.Where(c => listesByCommune.ContainsKey(c.codecommune)))
         {
             var codeCommune = commune.codecommune;
 
@@ -400,7 +510,7 @@ public class ActivationController : Controller
                         : new List<ListeElectoralAPC>(),
                 candidatsByListe,
                 usersByCommune.TryGetValue(
-                    codeCommune,
+                    codeWilaya,
                     out var communeUsers)
                         ? communeUsers
                         : new List<ActivationUserDto>());
@@ -419,7 +529,8 @@ public class ActivationController : Controller
             result.Add(new IssuedZipFile
             {
                 FileName = issued.FileName,
-                File = issued.File
+                File = issued.File,
+                Code = issued.Code
             });
         }
 
@@ -638,7 +749,8 @@ public class ActivationController : Controller
         var listes = await _electionDb.ListeElectoralAPW
             .AsNoTracking()
             .Where(x =>
-                x.CodeCircoAPW == codeWilaya)
+                x.CodeCircoAPW == codeWilaya
+                && x.Status == Domain.SahredKernel.StatusResult.Accepted)
             .OrderBy(x => x.IdListe)
             .ToListAsync();
 
@@ -655,7 +767,8 @@ public class ActivationController : Controller
             : await _electionDb.Candidature
                 .AsNoTracking()
                 .Where(x =>
-                    listeIds.Contains(x.IdListeElectoral))
+                    listeIds.Contains(x.IdListeElectoral)
+                    && x.ResultFinale == Domain.SahredKernel.StatusResult.Accepted)
                 .OrderBy(x => x.IdListeElectoral)
                 .ThenBy(x => x.Order)
                 .ToListAsync();
@@ -664,10 +777,12 @@ public class ActivationController : Controller
         // 7. Users of all communes in Wilaya
         // --------------------------------------------------------
 
+       
+
         var users = await _identityDb.Users
             .AsNoTracking()
             .Where(x =>
-                communeCodes.Contains(x.IdStructure))
+                x.IdStructure == codeWilaya)
             .Select(x => new ActivationUserDto
             {
                 Id = x.Id,
@@ -730,7 +845,8 @@ public class ActivationController : Controller
             new()
             {
                 FileName = issued.FileName,
-                File = issued.File
+                File = issued.File,
+                Code = issued.Code
             }
         };
     }
@@ -965,5 +1081,20 @@ public class ActivationController : Controller
         public string FileName { get; set; } = "";
 
         public byte[] File { get; set; } = Array.Empty<byte>();
+
+        public string Code { get; set; } = "";
+    }
+
+    private sealed class ActivationDownloadBundle
+    {
+        public string Owner { get; set; } = "";
+
+        public byte[] ZipBytes { get; set; } = Array.Empty<byte>();
+
+        public byte[] CodesBytes { get; set; } = Array.Empty<byte>();
+
+        public string ZipFileName { get; set; } = "";
+
+        public string CodesFileName { get; set; } = "";
     }
 }

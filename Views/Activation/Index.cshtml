@@ -15,6 +15,29 @@
 {
      <div class="alert alert-danger">@error</div>
 }
+@if (TempData["ActivationDownloadToken"] is string downloadToken)
+{
+    <div class="alert alert-warning mt-3">
+        <strong>Save both files now.</strong>
+
+        The download links expire after 15 minutes.
+        Keep the codes report separate from the activation ZIP.
+
+        <div class="mt-2 d-flex gap-2 flex-wrap">
+            <a class="btn btn-primary"
+               asp-action="DownloadZip"
+               asp-route-token="@downloadToken">
+                Download activation ZIP
+            </a>
+
+            <a class="btn btn-outline-danger"
+               asp-action="DownloadCodes"
+               asp-route-token="@downloadToken">
+                Download activation codes (CSV)
+            </a>
+        </div>
+    </div>
+}
 
 <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 
